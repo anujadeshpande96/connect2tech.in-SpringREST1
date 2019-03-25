@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.c2t.annotation.basic.Employee;
+import com.c2t.annotation.basic.Employee2;
 import com.c2t.annotation.basic.EmployeeVo;
 import com.journaldev.spring.service.EmployeeService;
+import com.journaldev.spring.service.EmployeeServiceImpl;
 
 
 
@@ -39,7 +41,7 @@ public class EmployeeController {
 	SessionFactory sf;
 	
 	@Autowired
-	EmployeeService s;
+	EmployeeServiceImpl s;
 	
 //	@RequestMapping(value = "/rest/emp/dummy1" , method=  RequestMethod.GET)
 //	public @ResponseBody Employee getDummyEmployee() {
@@ -54,28 +56,41 @@ public class EmployeeController {
 	
 	
 	
-//	@RequestMapping(value = "/rest/emp/dummy1" , method=  RequestMethod.GET)
-//	public @ResponseBody com.c2t.annotation.basic.Employee getDummyEmployee() {
-//		
-//			//logger.info("Start getDummyEmployee");
-//			Employee emp = new Employee();
-//			
-//			emp.setId(1000l);
-//			emp.setFirstname("dummy3");
-//			emp.setBirthDate(new java.sql.Date(1996, 06, 23));
-//			emp.setLastname("dummyL");
-//			emp.setCellphone("889977665");
-//			
-//			Session s = sf.openSession();
-//			s.beginTransaction();
-//			s.save(emp);
-//			s.getTransaction().commit();
-//			
-//			
-//		
-//		return emp;
-//	}
+@RequestMapping(value = "/rest/emp/dummy" , method=  RequestMethod.GET)
+	public @ResponseBody com.c2t.annotation.basic.Employee getDummyEmployee() {
 	
+	//logger.info("Start getDummyEmployee");
+			Employee emp = new Employee();
+			Employee2 emp1 = new Employee2();
+		
+		emp.setId(1000l);
+		emp.setFirstname("dummy7");
+		emp.setBirthDate(new java.sql.Date(1996, 06, 23));
+		emp.setLastname("dummy7L");
+		emp.setCellphone("7669000665");
+		
+		
+		emp1.setId(1000l);
+		emp1.setFirstname("dummy7");
+		emp1.setBirthDate(new java.sql.Date(1996, 06, 23));
+		emp1.setLastname("dummy7L");
+		emp1.setCellphone("7669000665");
+		
+		Session s = sf.openSession();
+	     s.beginTransaction();
+		s.save(emp);
+		s.save(emp1);
+			s.getTransaction().commit();
+		
+	
+	return emp;
+}
+
+
+
+
+
+//	
 //	@RequestMapping(value="/get", method=RequestMethod.GET)
 //	public @ResponseBody  Employee getDummyEmployee1() 
 //	{

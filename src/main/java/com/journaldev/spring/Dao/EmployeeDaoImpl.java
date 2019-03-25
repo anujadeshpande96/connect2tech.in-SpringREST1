@@ -23,6 +23,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		
 	}
 
+	
+	
+	
 	public Employee getEmployee()
 	{
 		return (Employee) sf.getCurrentSession().get(Employee.class, 3l);

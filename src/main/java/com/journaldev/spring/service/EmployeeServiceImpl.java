@@ -9,21 +9,18 @@ import org.springframework.stereotype.Service;
 import com.c2t.annotation.basic.Employee;
 import com.journaldev.spring.Dao.EmployeeDaoImpl;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeDao {
 	
-	
-	@Service
-	public class EmployeeManagerImpl implements EmployeeService {
 
 		@Autowired
-		@Qualifier (value="employeeDaoImpl")
+		//@Qualifier (value="employeeDaoImpl")
 		EmployeeDaoImpl dao;
 
 		public List<Employee> getAllEmployees() {
 			return (List<Employee>) dao.getEmployees();
 		}
 
-}
 
 	@Override
 	public Employee getEmployee() {
@@ -32,6 +29,6 @@ public class EmployeeServiceImpl implements EmployeeDao {
 	}
 
 	
-	}
+}
 
 	
